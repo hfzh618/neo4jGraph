@@ -527,7 +527,7 @@ function onRelationshipDoubleClicked(relationship: DataRelationship) {
     const fundInput =   (document.getElementById("search-fund-input") as HTMLInputElement);
     const searchKeyword = fundInput.value;
     if(searchKeyword.length === 0){
-        alert('请输入搜索内容！');
+        alert('请输入搜索内容');
     }else{
         superagent.get(`${apiRoot}/neo4j/node/fund/findOne?key=${searchKeyword}`).then(response=>{
             const body = response.body as { id: number, name: string, number: number, invests: { id: number, contributorId: number }[], contains: { id: number, projectId: number }[] };
@@ -537,4 +537,5 @@ function onRelationshipDoubleClicked(relationship: DataRelationship) {
     }
 };
 
-showFund(69).then(() => console.log('shown'));
+
+showFund(101).then(() => console.log('shown'));
